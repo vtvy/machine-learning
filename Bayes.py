@@ -1,12 +1,11 @@
 import os
 from sklearn.naive_bayes import GaussianNB
 import numpy as np
-import sys
-np.set_printoptions(suppress=True,linewidth=np.nan)
+
+np.set_printoptions(suppress=True, linewidth=np.nan)
 
 train_set_name = input("Enter the file name of trainset:")
 test_set_name = input("Enter the file name of testset:")
-
 
 
 def NB(train_set_name, test_set_name):
@@ -23,7 +22,7 @@ def NB(train_set_name, test_set_name):
     # function to read file and append to a 2D list
     def read_data(data_list, data_file):
         for line in data_file:
-            if ("," in line):
+            if "," in line:
                 row = line.split(",")
             else:
                 row = line.split(" ")
@@ -61,8 +60,11 @@ def NB(train_set_name, test_set_name):
     class_number = len(class_list)
     # declare a 2D list with 0 value default to store the confusion matrix
     startDistance = max(class_list) - class_number + 1
-    if (startDistance > 0):
-        matrix = [[0 for col in range(class_number + startDistance)] for row in range(class_number + startDistance)]
+    if startDistance > 0:
+        matrix = [
+            [0 for col in range(class_number + startDistance)]
+            for row in range(class_number + startDistance)
+        ]
     else:
         matrix = [[0 for col in range(class_number)] for row in range(class_number)]
 
@@ -75,6 +77,7 @@ def NB(train_set_name, test_set_name):
     print("test file name: " + test_set_name)
 
     from sklearn.metrics import accuracy_score, confusion_matrix
+
     print("confusion matrix:")
     print(confusion_matrix(y_test, y_predict))
 
