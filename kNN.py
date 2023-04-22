@@ -2,7 +2,7 @@ import os
 from collections import Counter
 import numpy as np
 
-# set the terminal to be max width for print a row in only 1 line.
+# set the terminal to be max width for printing a row in only 1 line.
 np.set_printoptions(suppress=True, linewidth=np.nan)
 
 # iris, optics, letter, faces, fp
